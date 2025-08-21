@@ -230,3 +230,77 @@ id_maps(user_id→uid_idx, anime_id→item_idx, time→time_idx)
 
   - Blog post / Medium article summarizing the approach
   - GitHub repo with clear commit history and instructions
+  - 
+
+
+## 11. Development Workflow
+
+To keep the project clean, modular, and recruiter-friendly, follow this workflow:
+
+### **Step 1 — Prototype in a Jupyter Notebook**
+- Start with a dedicated notebook for **data exploration, preprocessing, and model experimentation**.
+- Use it to:
+  - Load and clean `anime.csv` + `rating.csv`.
+  - Build interaction sequences and context embeddings.
+  - Train the SASRec model with feedback and time embeddings.
+  - Evaluate performance with Recall@K, NDCG@K, and visualize item embeddings.
+  - Generate top-N recommendations for sample users.
+- **Deliverable**:  
+  `model_dev.ipynb` — a clean, well-documented notebook showing the thought process and results.
+
+---
+
+### **Step 2 — Refactor into Python Scripts**
+Once the notebook model is working:
+- Move core code into Python modules for reusability and integration.
+- Suggested structure:
+  ```
+  src/
+  ├── data_loader.py       # Prepares sequences, context embeddings
+  ├── model.py             # SASRec + context embeddings
+  ├── train.py             # Training loop, evaluation logic
+  ├── inference.py         # Loads model & generates top-N recs
+  ├── utils.py             # Helper functions & metrics
+  ```
+- **Deliverables**:
+  - `train.py` → trains and saves model checkpoints.
+  - `inference.py` → loads checkpoint, predicts recommendations.
+
+---
+
+### **Step 3 — Build an Interactive Frontend**
+Create a **Streamlit app** so recruiters can try the recommender interactively.
+
+**Core features:**
+- **User onboarding**: select favorite anime to seed preferences.
+- **Recommendation feed**: show cards with name, genres, posters, and synopsis.
+- **Feedback buttons**: dislike, like, love → logs into `events.csv`.
+- **Explainability**: e.g., “Recommended because you loved *Naruto* and *Bleach*.”
+
+**Folder structure addition:**
+```
+app/
+├── streamlit_app.py
+├── assets/
+│   ├── posters/
+│   └── logo.png
+```
+- **Deliverable**:  
+  `streamlit_app.py` — interactive demo powered by your trained model.
+
+---
+
+### **Step 4 — Optional Enhancements**
+- **Incremental retraining**: update embeddings nightly with fresh feedback.
+- **Cold-start fallback**: fallback on synopsis + genre embeddings if no history.
+- **FAISS index**: accelerate nearest-neighbor retrieval for recommendations.
+- **Dockerize later** if deploying or sharing with others.
+
+---
+
+### **Step 5 — Finalize and Polish**
+1. Validate model results and visualizations.
+2. Document the entire workflow in the README.
+3. Include screenshots, attention heatmaps, and embedding clusters.
+4. Make the repository recruiter-ready.
+
