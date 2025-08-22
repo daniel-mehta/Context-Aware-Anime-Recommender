@@ -304,3 +304,46 @@ app/
 3. Include screenshots, attention heatmaps, and embedding clusters.
 4. Make the repository recruiter-ready.
 
+01_sasrec_feedback_demo.ipynb (your main notebook now)
+
+One clear goal: prove the pipeline works end-to-end
+
+Data cleaning → sequences → SASRec → feedback embeddings → training → save → quick test
+
+This is your baseline reference notebook
+
+02_hyperparam_tuning.ipynb
+
+Once you know the baseline works, this notebook is just for experiments:
+
+Test different hidden dims (d_model = 128, 192, 256)
+
+Number of layers (n_layers=2 vs 4)
+
+Dropout rates (0.1, 0.2, 0.3)
+
+Loss functions (BPR vs BCE)
+
+Record Recall@10 / NDCG@20 curves, maybe plot trade-offs between speed vs accuracy
+
+End product: a table of best configs
+
+This keeps tuning code separate so your baseline notebook doesn’t get cluttered with loops and logging
+
+03_eval_ablation.ipynb
+
+Focused on proving what matters in your model
+
+Examples:
+
+Run SASRec with vs without feedback embeddings
+
+With vs without time embeddings
+
+SASRec vs simple Matrix Factorization baseline
+
+Report differences in Recall/NDCG
+
+The point is storytelling for a portfolio or paper: you can say “adding feedback embeddings gave +5% Recall@20 over vanilla SASRec.”
+
+This notebook can be much smaller — just load saved models with different configs and run evaluation code
