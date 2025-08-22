@@ -312,25 +312,9 @@ Data cleaning → sequences → SASRec → feedback embeddings → training → 
 
 This is your baseline reference notebook
 
-02_hyperparam_tuning.ipynb
 
-Once you know the baseline works, this notebook is just for experiments:
 
-Test different hidden dims (d_model = 128, 192, 256)
-
-Number of layers (n_layers=2 vs 4)
-
-Dropout rates (0.1, 0.2, 0.3)
-
-Loss functions (BPR vs BCE)
-
-Record Recall@10 / NDCG@20 curves, maybe plot trade-offs between speed vs accuracy
-
-End product: a table of best configs
-
-This keeps tuning code separate so your baseline notebook doesn’t get cluttered with loops and logging
-
-03_eval_ablation.ipynb
+02_eval_ablation.ipynb
 
 Focused on proving what matters in your model
 
