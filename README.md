@@ -1,4 +1,8 @@
 # Nostrade Engine - Context-Aware Anime Recommender
+[![Python](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C.svg)](https://pytorch.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Enabled-brightgreen.svg)](https://streamlit.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A sequence-based recommender that learns from **watch history** and **explicit feedback** (Dislike / Like / Love), with optional **genre-aware blending** and **simple explanations** in a Streamlit demo.
 
