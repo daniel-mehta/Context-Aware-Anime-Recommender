@@ -82,13 +82,20 @@ A sequence-based recommender that learns from **watch history** and **explicit f
 │     ├─ items.parquet           # cleaned items (aligned to iid_map)
 │     └─ interactions.parquet    # uid, iid, feedback, timestamp
 ├─ checkpoints/
-│  └─ sasrec_final.pt    # trained SASRec weights
+│  ├─ sasrec_best.pt     # intermediate/best model
+│  └─ sasrec_final.pt    # final trained model
 ├─ artifacts/
 │  └─ iid_map.json       # anime_id → iid (exact mapping used in training)
-├─ notebooks/
-│  ├─ 01_sasrec_feedback_demo.ipynb
-│  └─ 02_eval_ablation.ipynb
-└─ make_processed_data.py # quick script to rebuild /processed
+├─ docs/                 # screenshots for README
+│  ├─ screenshot_app_main.png
+│  ├─ screenshot_recs.png
+│  ├─ Why_These.png
+│  └─ influence_chart.png
+├─ 01_sasrec_feedback_demo.ipynb
+├─ 02_eval_ablation.ipynb
+├─ make_processed_data.py # quick script to rebuild /processed
+├─ LICENSE
+└─ README.md
 ```
 
 ---
