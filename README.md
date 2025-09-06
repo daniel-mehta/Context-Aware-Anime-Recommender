@@ -22,19 +22,20 @@ A sequence-based recommender that learns from **watch history** and **explicit f
 
 ---
 
-## 📸 Screenshots (to add)
+## 📸 Screenshots
 
-> placeholders
-
-- `docs/screenshot_app_main.png` - Main page: table with feedback drop-down, Predict button.
-- `docs/screenshot_recs.png` - Top-K recommendations table.
-- `docs/screenshot_why.png` - “Why these?” table + influence graph.
-
-```text
+### Main App
 ![Main UI](docs/screenshot_app_main.png)
-![Top-K](docs/screenshot_recs.png)
-![Why](docs/screenshot_why.png)
-```
+
+### Top Recommendations
+![Top-K Recommendations](docs/screenshot_recs.png)
+
+### Why These?
+![Why These](docs/Why_These.png)
+
+### Influence Graph
+![Influence Graph](docs/Influence_Chart.png)
+
 
 ---
 
