@@ -53,18 +53,18 @@ A sequence-based recommender that learns from **watch history** and **explicit f
 
 ---
 
-## 🧪 Key Results (from `02_eval_ablation.ipynb`)
+## 🧪 Key Results (Validation Set)
 
-> Numbers are illustrative-replace with your actual results.
+| Model                | Recall@10 | Recall@20 | NDCG@10 | NDCG@20 |
+|-----------------------|-----------|-----------|---------|---------|
+| Popularity           | 0.0045    | 0.0100    | 0.0024  | 0.0038  |
+| SASRec (feedback)    | 0.0455    | 0.0742    | 0.0196  | 0.0252  |
+| SASRec (masked fb)   | 0.0429    | 0.0693    | 0.0174  | 0.0224  |
+| SASRec + genre blend | **0.0461**| **0.0745**| **0.0198**| **0.0253** |
 
-| Model                     | Recall@20 | NDCG@20 |
-|--------------------------:|:---------:|:-------:|
-| Popularity (baseline)     |   0.012   |  0.006  |
-| SASRec (masked feedback)  |   0.041   |  0.028  |
-| **SASRec (feedback)**     | **0.047** | **0.031** |
-| SASRec + Genre Blend (α=.2)| **0.049** | **0.032** |
-
-**Takeaways:** feedback helps; genre blend adds a small but consistent lift (bigger for short histories).
+**Takeaways:**
+- Feedback embeddings give a measurable improvement.
+- Genre blend adds a small but consistent lift, especially for Recall@20.
 
 ---
 
@@ -82,18 +82,19 @@ A sequence-based recommender that learns from **watch history** and **explicit f
 │     ├─ items.parquet           # cleaned items (aligned to iid_map)
 │     └─ interactions.parquet    # uid, iid, feedback, timestamp
 ├─ checkpoints/
-│  ├─ sasrec_best.pt     # intermediate/best model
+│  ├─ sasrec_best.pt     # best checkpoint (during training)
 │  └─ sasrec_final.pt    # final trained model
 ├─ artifacts/
-│  └─ iid_map.json       # anime_id → iid (exact mapping used in training)
-├─ docs/                 # screenshots for README
+│  └─ iid_map.json       # anime_id → iid (mapping used in training)
+├─ docs/                 # screenshots & docs
 │  ├─ screenshot_app_main.png
 │  ├─ screenshot_recs.png
 │  ├─ Why_These.png
-│  └─ influence_chart.png
-├─ 01_sasrec_feedback_demo.ipynb
-├─ 02_eval_ablation.ipynb
-├─ make_processed_data.py # quick script to rebuild /processed
+│  ├─ Influence_Chart.png
+│  └─ Nostrade Engine.pdf
+├─ 01_sasrec_feedback_demo.ipynb   # training notebook
+├─ 02_eval_ablation.ipynb          # ablation/evaluation notebook
+├─ make_processed_data.py          # quick script to rebuild /processed
 ├─ LICENSE
 └─ README.md
 ```
